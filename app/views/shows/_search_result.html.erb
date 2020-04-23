@@ -1,0 +1,14 @@
+<% @shows.each do |show|%>
+<div class="card-body">
+	<h5 class="card-title text-danger"><%= show.name%></h5>
+	<p class="card-text text-muted">Time: <%= show.start_time.strftime("%d %b %Y %H:%M")%> </p>
+	<p class="text-primary">Channel: <%= show.channel.name%></p>
+	<%= form_tag  shows_add_to_favourites_path do %>
+	<%= hidden_field_tag :show_id, show.id%>
+
+	<%= submit_tag "Add to Favourite", class: "btn btn-primary", disabled: show.is_favourite?%><br />
+	<small class="text-success"> Added to favourites</small>
+	<% end %>
+</div>
+<hr />
+<% end %> 

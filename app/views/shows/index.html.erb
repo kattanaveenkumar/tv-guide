@@ -1,0 +1,12 @@
+
+<div class="card mt-5">
+	<div class="card-header">
+
+		<%= form_tag("/shows/search", method: 'get', remote: true) do %>
+		<%= text_field_tag :q, "",  { placeholder: "Type TV Show name or Channel name here..", class: "form-control col-4 search-input" }%>
+		<% end %>
+	</div>
+	<div class="list">
+		<%= render 'search_result'%>
+	</div> 
+</div>
